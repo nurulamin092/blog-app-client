@@ -1,9 +1,12 @@
 import { Button } from "@/components/ui/button";
+import { authClient } from "@/lib/auth-client";
 
-export default function Home() {
+export default async function Home() {
+  const session = await authClient.getSession();
+  console.log(session);
   return (
-  <div className="flex flex-wrap items-center gap-2 md:flex-row">
-    <Button variant="outline">Click Here</Button>
-  </div>
+    <div className="flex flex-wrap items-center gap-2 md:flex-row">
+      <Button variant="outline">Click Here</Button>
+    </div>
   );
 }
